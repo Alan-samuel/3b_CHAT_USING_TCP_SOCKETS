@@ -1,4 +1,8 @@
 # 3b.CREATION FOR CHAT USING TCP SOCKETS
+
+Name: Alan Samuel Vedanayagam
+Reg.no: 212223040012
+
 ## AIM
 To write a python program for creating Chat using TCP Sockets Links.
 ## ALGORITHM:
@@ -8,7 +12,32 @@ To write a python program for creating Chat using TCP Sockets Links.
  server
 4. Send and receive the message using the send function in socket.
 ## PROGRAM
+Client:
+import socket
+s=socket.socket()
+s.connect(('localhost',800))
+while True:
+ msg=input("Client > ")
+ s.send(msg.encode())
+ print("Server > ",s.recv(1024).decode())
+
+ Server:
+import socket
+s=socket.socket()
+s.bind(('localhost',800))
+s.listen(5)
+c,addr=s.accept()
+while True:
+ ClientMessage=c.recv(1024).decode()
+ print("Client > ",ClientMessage)
+ msg=input("Server > ")
+ c.send(msg.encode())
+ 
 ## OUPUT
+![image](https://github.com/Alan-samuel/3b_CHAT_USING_TCP_SOCKETS/assets/147091803/19826f0f-664c-4c2e-9888-e51dd0fc90f2)
+![image](https://github.com/Alan-samuel/3b_CHAT_USING_TCP_SOCKETS/assets/147091803/42077445-f834-4b18-b227-1382c7f27cf1)
+
+
 ## RESULT
 Thus, the python program for creating Chat using TCP Sockets Links was successfully 
 created and executed.
